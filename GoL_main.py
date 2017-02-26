@@ -43,8 +43,8 @@ class Screen(tk.Canvas):
         else:
             self.separation_length = self.window_side_length / self.slider.get()
         m = (self.board.position2 * self.separation_length) - 15 # to spread list to the left and up. The 15 is to give some space to zooming
-        x = 0+self.moving_x
-        y = 0+self.moving_y-m
+        x = self.moving_x
+        y = self.moving_y-m
         x2 = self.separation_length+self.moving_x
         y2 = self.separation_length+self.moving_y-m
         cube_array = self.board.current_grid # Using the Grid class
@@ -57,7 +57,7 @@ class Screen(tk.Canvas):
                     pass
                 x += self.separation_length
                 x2 += self.separation_length
-            x = 0+self.moving_x
+            x = self.moving_x
             x2 = self.separation_length+self.moving_x
             y += self.separation_length
             y2 += self.separation_length
